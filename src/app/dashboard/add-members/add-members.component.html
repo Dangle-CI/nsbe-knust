@@ -1,0 +1,63 @@
+<p-dialog header="Member Details" [(visible)]="storageService.addMemberDialog" [modal]="true" [style]="{width: '50vw'}"
+          [maximizable]="true"
+          [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+  <form [formGroup]="membersForm" class="forms">
+    <div class="form-group zones">
+      <div class="p-field">
+        <label for="local-zone"></label>
+        <p-dropdown
+          [ngClass]="{'p-invalid':!membersForm.get('localZone').valid && membersForm.get('localZone').touched}"
+          formControlName="localZone" id="local-zone" [options]="localZone" placeholder="Local Zone"
+          optionLabel="name"
+          [showClear]="true"></p-dropdown>
+      </div>
+
+      <div class="p-field">
+        <label for="regional-zone"></label>
+        <p-dropdown
+          [ngClass]="{'p-invalid':!membersForm.get('regionalZone').valid && membersForm.get('regionalZone').touched}"
+          formControlName="regionalZone" optionLabel="name" id="regional-zone" [options]="regionalZone"
+          placeholder="Local Zone"
+          [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+    <div class="form-group names">
+      <div class="p-field">
+        <label for="surname">Surname</label>
+        <input formControlName="surname" id="surname" type="username"
+               [ngClass]="{'p-invalid':!membersForm.get('surname').valid && membersForm.get('surname').touched}"
+               pInputText/>
+      </div>
+
+      <div class="p-field">
+        <label for="otherNames">Other Names</label>
+        <input formControlName="otherNames" id="otherNames" type="username"
+               [ngClass]="{'p-invalid':!membersForm.get('otherNames').valid && membersForm.get('otherNames').touched}"
+               pInputText/>
+      </div>
+    </div>
+
+    <div class="form-group contacts">
+      <div class="p-field">
+        <label for="email">Email</label>
+        <input formControlName="email" id="email" type="email" pInputText/>
+      </div>
+
+      <div class="p-field">
+        <label>Mobile</label>
+        <input type="tel"
+               [ngClass]="{'p-invalid':!membersForm.get('mobile').valid && membersForm.get('mobile').touched}"
+               formControlName="mobile" pInputText>
+      </div>
+    </div>
+
+  </form>
+  <ng-template pTemplate="footer">
+    <p-progressSpinner *ngIf="loading" [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8"
+                       fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    <p-button *ngIf="!loading" icon="pi pi-check" (click)="addMember()" label="Submit"
+              styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+<p-toast position="bottom-center" key="bc"></p-toast>

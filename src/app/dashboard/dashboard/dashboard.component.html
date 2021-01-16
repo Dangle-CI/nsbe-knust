@@ -1,0 +1,172 @@
+<app-navbar></app-navbar>
+<p-table
+  #dt
+  [value]="storageService.membersData"
+  dataKey="id"
+  [rows]="10"
+  [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[5, 10, 25, 50, 100]"
+  [loading]="loading"
+  styleClass="p-datatable-customers"
+  [paginator]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [filterDelay]="0"
+  [globalFilterFields]="[
+    'surname',
+    'otherNames',
+    'email',
+    'localZone',
+    'regionalZone',
+    'mobile'
+  ]"
+>
+  <ng-template pTemplate="caption">
+    <div class="p-d-flex">
+      <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()"
+              class="p-button-success p-mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
+      <!--      <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning p-mr-2"-->
+      <!--              pTooltip="PDF" tooltipPosition="bottom"></button>-->
+    </div>
+    <div class="table-header">
+      List of Members
+      <span class="p-input-icon-left">
+        <!-- <i class="pi pi-search"></i> -->
+        <input
+          pInputText
+          type="text"
+          (input)="dt.filterGlobal($event.target.value, 'contains')"
+          placeholder="Global Search"
+        />
+      </span>
+    </div>
+  </ng-template>
+  <!--  </ng-template>-->
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Mobile Number</th>
+      <th>Regional Zone</th>
+      <th>Local Zone</th>
+      <th>Attendance</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>
+        <input
+          pInputText
+          type="text"
+          (input)="dt.filter($event.target.value, 'surname', 'contains')"
+          placeholder="Search by Surname"
+          class="p-column-filter"
+        />
+      </th>
+      <th>
+        <input
+          pInputText
+          type="text"
+          (input)="dt.filter($event.target.value, 'email', 'contains')"
+          placeholder="Search by Email"
+          class="p-column-filter"
+        />
+      </th>
+      <th>
+        <input
+          pInputText
+          type="text"
+          (input)="dt.filter($event.target.value, 'mobile', 'startsWith')"
+          placeholder="Search by Mobile"
+          class="p-column-filter"
+        />
+      </th>
+
+      <th></th>
+      <th></th>
+      <th>
+        <!--        <p-calendar-->
+        <!--          (onSelect)="onDateSelect($event)"-->
+        <!--          (onClearClick)="dt.filter('', 'attendance', 'contains')"-->
+        <!--          [showButtonBar]="true"-->
+        <!--          styleClass="p-column-filter"-->
+        <!--          placeholder="Attendance"-->
+        <!--          [readonlyInput]="true"-->
+        <!--          dateFormat="dd-mm-yy"-->
+        <!--        ></p-calendar>-->
+      </th>
+      <th></th>
+
+      <!--  <th>
+          <p-dropdown
+            [options]="regionalZones"
+            (onChange)="dt.filter($event.value, 'regionalZone', 'equals')"
+            styleClass="p-column-filter"
+            placeholder="Regional zone"
+            [showClear]="true"
+          >
+            <ng-template let-option pTemplate="item">
+              <span [class]="'customer-badge status-' + option.name">{{
+                option.name
+                }}</span>
+            </ng-template>
+          </p-dropdown>
+        </th>
+
+        <th>
+          <p-dropdown
+            [options]="localZones"
+            (onChange)="dt.filter($event.value, 'localZone', 'equals')"
+            styleClass="p-column-filter"
+            placeholder="Local zone"
+            [showClear]="true"
+          >
+            <ng-template let-option pTemplate="item">
+              <span [class]="'customer-badge status-' + option.name">{{
+                option.name
+                }}</span>
+            </ng-template>
+          </p-dropdown>
+        </th> -->
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-member>
+    <tr>
+      <td>
+        {{ member.surname.toUpperCase() + ' ' + member.otherNames }}
+      </td>
+      <td>
+        <span class="image-text">{{ member.email }}</span>
+      </td>
+      <td>
+        <span [class]="'customer-badge status-' + member.mobile">{{member.mobile}}</span>
+      </td>
+      <td>
+        <span [class]="'customer-badge status-' + member.status">{{member.regionalZone}}</span>
+      </td>
+      <td>
+        <span [class]="'customer-badge status-' + member.status">{{member.localZone}}</span>
+      </td>
+      <td>
+        <p-calendar dateFormat="dd-M-yy" (onClose)="updateMemberData(member)" [(ngModel)]="member.attendance"
+                    selectionMode="multiple"
+                    [readonlyInput]="true" [monthNavigator]="true" [yearNavigator]="true" [showTime]="true"
+                    [showIcon]="true" showButtonBar="true" inputId="icon"
+                    [disabledDays]="[1, 2, 3, 4, 5, 6]" [yearRange]="yearRange" (onShow)="calenderOpened()"
+                    (onSelect)="calenderEdited()" n></p-calendar>
+      </td>
+      <td class="deleteIcon">
+        <button [id]="member.id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                (click)="deleteMember(member)"></button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="6">No Members found.</td>
+    </tr>
+  </ng-template>
+</p-table>
+<app-add-staff></app-add-staff>
+<app-add-members></app-add-members>
+<p-toast position="bottom-center" key="bc"></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="9999999999"></p-confirmDialog>
+<a class="linkedIn" (click)="linkedIn()"> With ❤ by @theHinneh</a>

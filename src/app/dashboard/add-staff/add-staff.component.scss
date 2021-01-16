@@ -1,0 +1,12 @@
+:host ::ng-deep {
+  .p-field {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+
+    label {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}

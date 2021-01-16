@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "id": 1000,
+      "name": "string",
+      "mobile": 0,
+      "email": "string",
+      "localZone": "string",
+      "regionalZone": "string",
+      "attendance": "string"
+    }
+  ]
+}

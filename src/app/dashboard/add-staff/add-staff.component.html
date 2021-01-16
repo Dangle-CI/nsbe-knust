@@ -1,0 +1,41 @@
+<p-dialog header="Staff Details" [(visible)]="storageService.addStaffDialog" [modal]="true" [style]="{width: '50vw'}"
+          [maximizable]="true" [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+  <div class="forms">
+    <div class="p-field">
+      <label for="surname">Surname</label>
+      <input id="surname" type="username" pInputText/>
+    </div>
+
+    <div class="p-field">
+      <label for="otherNames">Other Names</label>
+      <input id="otherNames" type="username" pInputText/>
+    </div>
+
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input id="email" type="email" aria-describedby="email-help" class="p-invalid" pInputText/>
+      <small id="email-help" class="p-invalid">Email already in use.</small>
+    </div>
+
+    <!--    <div class="p-field">-->
+    <!--      <label for="email">Mobile</label>-->
+    <!--      <input id="mobile" type="email" class="p-invalid" pInputText />-->
+    <!--&lt;!&ndash;      <small id="mobile-help" class="p-invalid">Email already in use.</small>&ndash;&gt;-->
+    <!--    </div>-->
+    <div class="p-field">
+      <label for="withoutgrouping">Mobile</label>
+      <p-inputNumber mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
+      </p-inputNumber>
+    </div>
+
+    <div class="p-field">
+      <label for="email">Password</label>
+      <input pPassword type="password"/>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="storageService.addStaffDialog=false" label="Ok"
+              styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

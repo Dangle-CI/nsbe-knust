@@ -1,0 +1,35 @@
+export enum RegionalZonesEnum {
+  Northern = 'Northern',
+  Western = 'Western',
+  Central = 'Central',
+  Southern = 'Southern',
+  Eastern = 'Eastern',
+  'No Zone' = 'No Zone'
+}
+
+export enum LocalZonesEnum {
+  Kokomlemle = 'Kokomlemle',
+  'Zongo Junction' = 'Zongo Junction',
+  Russia = 'Russia',
+  Adenta = 'Adenta',
+  'Achimota/Abeka Lapaz' = 'Achimota/Abeka Lapaz',
+  Nima = 'Nima',
+  'Accra Newtown' = 'Accra Newtown',
+  Adabraka = 'Adabraka',
+  'Tantra Hill' = 'Tantra Hill',
+  La = 'La',
+  Central = 'Central',
+  'North Kaneshie/Darkuman' = 'North Kaneshie/Darkuman',
+  Kpehe = 'Kpehe',
+  Odorkor = 'Odorkor',
+  'Dansoman/Mataheko' = 'Dansoman/Mataheko',
+  'Mallam/Gbawe' = 'Mallam/Gbawe',
+  'Kaneshie/Bubuashie' = 'Kaneshie/Bubuashie',
+  Amasaman = 'Amasaman',
+  'East Legon' = 'East Legon',
+  'Dome Kwabenya' = 'Dome Kwabenya',
+  Kasoa = 'Kasoa',
+  'Burma Camp' = 'Burma Camp',
+  Agege = 'Agege',
+  'Santa Maria' = 'Santa Maria',
+}
