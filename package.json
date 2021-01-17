@@ -23,7 +23,6 @@
     "@angular/router": "~10.2.0",
     "@types/file-saver": "^2.0.1",
     "express": "^4.17.1",
-    "file-saver": "^2.0.2",
     "jspdf": "^2.1.1",
     "jspdf-autotable": "^3.5.13",
     "path": "^0.12.7",
@@ -31,7 +30,6 @@
     "primeng": "^10.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "xlsx": "^0.16.8",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

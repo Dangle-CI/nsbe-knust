@@ -12,18 +12,20 @@ import {LocalZonesModel, RegionalZonesModel} from '../../models/zones.model';
   providers: [MessageService]
 })
 export class AddMembersComponent implements OnInit {
-  localZone = LocalZonesModel;
-  regionalZone = RegionalZonesModel;
   membersForm = new FormGroup({
     surname: new FormControl('', Validators.required),
     otherNames: new FormControl('', Validators.required),
     mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
     email: new FormControl(''),
-    localZone: new FormControl('', Validators.required),
-    regionalZone: new FormControl('', Validators.required),
-    attendance: new FormControl(''),
+    programe: new FormControl('', Validators.required),
+    regDate: new FormControl('', Validators.required),
+    memberID: new FormControl(''),
   });
   loading: boolean
+  today = new Date();
+  month = this.today.getMonth();
+  thisYear = this.today.getFullYear();
+  yearRange = `1998:${this.thisYear}`
 
   constructor(public storageService: StorageService, private apiService: ApiService, private messageService: MessageService) {
   }
@@ -36,12 +38,12 @@ export class AddMembersComponent implements OnInit {
       this.loading = true
       const mobile = `233${this.membersForm.get('mobile').value.substring(1)}`;
       const data = {
-        attendance: this.membersForm.value.attendance,
+        regDate: this.membersForm.value.regDate,
         email: this.membersForm.value.email,
-        localZone: this.membersForm.value.localZone.name,
+        programe: this.membersForm.value.programe,
         mobile: mobile,
         otherNames: this.membersForm.value.otherNames,
-        regionalZone: this.membersForm.value.regionalZone.name,
+        memberID: this.membersForm.value.memberID,
         surname: this.membersForm.value.surname
       };
       // console.log(this.membersForm.value, data);

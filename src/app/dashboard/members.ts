@@ -4,7 +4,7 @@ export interface Members {
   "otherNames": string,
   "mobile": any,
   "email": string,
-  "localZone": any,
-  "regionalZone": any,
-  "attendance": Date[]
+  "programe": any,
+  "regDate": Date,
+  "memberID": any
 }
