@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="election">
+  <div class="create-aspirant">
+    <p-card header="Add Aspirant">
+      <form (ngSubmit)="createAspirant()" [formGroup]="aspirantsForm" class="forms" enctype="multipart/form-data">
+        <div class="p-field">
+          <label for="surname">Membership ID</label>
+          <input
+            (change)="this.onFileChange($event)"
+            formControlName="memberId"
+            id="surname"
+            type="text"
+            [ngClass]="{
+            'p-invalid':
+              !aspirantsForm.get('memberId').valid &&
+              aspirantsForm.get('memberId').touched
+          }"
+            pInputText
+          />
+        </div>
+
+        <div class="p-field">
+          <label for="position">Position</label>
+          <input
+            formControlName="position"
+            id="position"
+            type="text"
+            [ngClass]="{
+            'p-invalid':
+              !aspirantsForm.get('position').valid &&
+              aspirantsForm.get('position').touched
+          }"
+            pInputText
+          />
+        </div>
+
+        <div class="p-field">
+          <label for="position">Image</label>
+          <!--          <p-fileUpload mode="basic" name="demo[]" [auto]="true" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>-->
+          <input
+            formControlName="image"
+            id="image"
+            type="file"
+            [ngClass]="{'p-invalid':!aspirantsForm.get('image').valid && aspirantsForm.get('image').touched
+                    }"
+            pInputText
+          />
+        </div>
+
+        <button class="submit">Save</button>
+      </form>
+    </p-card>
+  </div>
+
+  <div class="all-aspirants">
+    <app-aspirants></app-aspirants>
+  </div>
+</div>

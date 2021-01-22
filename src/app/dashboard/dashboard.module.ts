@@ -16,7 +16,7 @@ import {ProgressBarModule} from 'primeng/progressbar';
 import {DropdownModule} from 'primeng/dropdown';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuardService} from '../services/auth-guard.service';
-import {NavbarComponent} from './navbar/navbar.component';
+import {NavbarComponent} from '../shared/navbar/navbar.component';
 import {MenubarModule} from 'primeng/menubar';
 import {AddStaffComponent} from './add-staff/add-staff.component';
 import {AddMembersComponent} from './add-members/add-members.component';
@@ -25,12 +25,13 @@ import {PasswordModule} from 'primeng/password';
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {MessagesModule} from "primeng/messages";
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {SharedModule} from "../shared/shared.module";
 
 
 const routes: Routes = [{path: '', component: DashboardComponent, canActivate: [AuthGuardService]}];
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, AddStaffComponent, AddMembersComponent],
+  declarations: [DashboardComponent, AddStaffComponent, AddMembersComponent],
   imports: [
     CommonModule,
     TableModule,
@@ -52,7 +53,8 @@ const routes: Routes = [{path: '', component: DashboardComponent, canActivate: [
     ReactiveFormsModule,
     ConfirmDialogModule,
     MessagesModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    SharedModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: []

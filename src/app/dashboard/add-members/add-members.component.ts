@@ -3,7 +3,6 @@ import {StorageService} from '../../services/storage.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../../services/api.service';
 import {MessageService} from 'primeng/api';
-import {LocalZonesModel, RegionalZonesModel} from '../../models/zones.model';
 
 @Component({
   selector: 'app-add-members',
@@ -17,9 +16,9 @@ export class AddMembersComponent implements OnInit {
     otherNames: new FormControl('', Validators.required),
     mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
     email: new FormControl(''),
-    programe: new FormControl('', Validators.required),
+    programme: new FormControl('', Validators.required),
     regDate: new FormControl('', Validators.required),
-    memberID: new FormControl(''),
+    memberId: new FormControl(''),
   });
   loading: boolean
   today = new Date();
@@ -40,10 +39,10 @@ export class AddMembersComponent implements OnInit {
       const data = {
         regDate: this.membersForm.value.regDate,
         email: this.membersForm.value.email,
-        programe: this.membersForm.value.programe,
+        memberId: this.membersForm.value.memberId,
         mobile: mobile,
         otherNames: this.membersForm.value.otherNames,
-        memberID: this.membersForm.value.memberID,
+        programme: this.membersForm.value.programme,
         surname: this.membersForm.value.surname
       };
       // console.log(this.membersForm.value, data);

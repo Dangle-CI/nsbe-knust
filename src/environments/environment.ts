@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://nsawam-road-coc-backend.herokuapp.com'
+  baseUrl: 'http://localhost:3000'
 };
 
 /*

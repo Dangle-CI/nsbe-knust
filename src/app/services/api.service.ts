@@ -9,6 +9,7 @@ import {MemberModel} from '../models/member.model';
 export class ApiService {
   AUTH_URL = '/auth/';
   MEMBERS_URL = '/members/';
+  ELECTION_URL = '/election'
 
   constructor(private http: HttpClient) {
   }
@@ -40,5 +41,9 @@ export class ApiService {
 
   getAllMembers(): any {
     return this.http.get(this.MEMBERS_URL);
+  }
+
+  createAspirant(data: any): any {
+    return this.http.post(`${this.ELECTION_URL}/aspirant`, data)
   }
 }

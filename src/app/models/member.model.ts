@@ -4,7 +4,7 @@ export interface MemberModel {
   otherNames: string
   mobile?: string
   email?: string
-  programe?: string
+  programme?: string
   regDate?: Date
-  memberID: any
+  memberId: any
 }

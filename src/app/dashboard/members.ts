@@ -4,7 +4,7 @@ export interface Members {
   "otherNames": string,
   "mobile": any,
   "email": string,
-  "programe": any,
+  "programme": any,
   "regDate": Date,
-  "memberID": any
+  "memberId": any
 }

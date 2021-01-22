@@ -17,6 +17,23 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
+        label: 'Election',
+        command: () => this.router.navigateByUrl('/election')
+        // icon: 'pi pi-fw pi-user-edit',
+        // items: [
+        //   {
+        //     label: 'New',
+        //     icon: 'pi pi-fw pi-user-plus',
+        //     command: () => this.addStaff()
+        //   },
+        //   // {
+        //   //   label: 'Delete',
+        //   //   icon: 'pi pi-fw pi-user-minus',
+        //
+        //   // },
+        // ]
+      },
+      {
         label: 'Admin',
         icon: 'pi pi-fw pi-user',
         // items: [

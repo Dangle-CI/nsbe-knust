@@ -40,7 +40,7 @@
       <th>Full Name</th>
       <th>Email</th>
       <th>Mobile Number</th>
-      <th>Program</th>
+      <th>Programme</th>
       <th>Membership ID</th>
       <th>Registration Date</th>
       <th></th>
@@ -79,7 +79,7 @@
         <input
           pInputText
           type="text"
-          (input)="dt.filter($event.target.value, 'memberID', 'startsWith')"
+          (input)="dt.filter($event.target.value, 'memberId', 'startsWith')"
           placeholder="Search by ID"
           class="p-column-filter"
         />
@@ -101,10 +101,10 @@
         <span [class]="'customer-badge status-' + member.mobile">{{member.mobile}}</span>
       </td>
       <td>
-        <span [class]="'customer-badge status-' + member.programe">{{member.programe}}</span>
+        <span [class]="'customer-badge status-' + member.programme">{{member.programme}}</span>
       </td>
       <td>
-        <span [class]="'customer-badge status-' + member.memberID">{{member.memberID}}</span>
+        <span [class]="'customer-badge status-' + member.memberId">{{member.memberId}}</span>
       </td>
       <td>
         <span [class]="'customer-badge status-' + member.regDate">{{member.regDate}}</span>

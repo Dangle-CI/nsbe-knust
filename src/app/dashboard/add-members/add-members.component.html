@@ -63,15 +63,15 @@
     </div>
 
     <div class="p-field">
-      <label for="surname">Programe</label>
+      <label for="surname">Programme</label>
       <input
-        formControlName="programe"
-        id="programe"
+        formControlName="programme"
+        id="programme"
         type="text"
         [ngClass]="{
           'p-invalid':
-            !membersForm.get('programe').valid &&
-            membersForm.get('programe').touched
+            !membersForm.get('programme').valid &&
+            membersForm.get('programme').touched
         }"
         pInputText
       />
@@ -80,13 +80,13 @@
     <div class="p-field">
       <label for="surname">Membership ID</label>
       <input
-        formControlName="programe"
-        id="memberID"
+        formControlName="memberId"
+        id="memberId"
         type="text"
         [ngClass]="{
           'p-invalid':
-            !membersForm.get('memberID').valid &&
-            membersForm.get('memberID').touched
+            !membersForm.get('memberId').valid &&
+            membersForm.get('memberId').touched
         }"
         pInputText
       />
