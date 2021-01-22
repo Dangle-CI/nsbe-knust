@@ -1,0 +1,41 @@
+import { MembersDto } from '../../members/dto/members.dto';
+import { ApiProperty } from '@nestjs/swagger';
+
+export class CreateAspirantDto {
+  @ApiProperty()
+  id?: string;
+  @ApiProperty()
+  position: string;
+  @ApiProperty()
+  memberId: string;
+  @ApiProperty()
+  image: string;
+}
+
+export class GetAspirantDetails {
+  @ApiProperty()
+  id: string;
+  @ApiProperty()
+  position: string;
+  @ApiProperty()
+  image: string;
+  @ApiProperty()
+  memberId: string;
+  @ApiProperty()
+  memberDetails: MembersDto;
+}
+
+export class GCSDto {
+  @ApiProperty()
+  fieldname: string;
+  @ApiProperty()
+  originalname: string;
+  @ApiProperty()
+  encoding: string;
+  @ApiProperty()
+  mimetype: string;
+  @ApiProperty()
+  path: string;
+  @ApiProperty()
+  filename: string;
+}
