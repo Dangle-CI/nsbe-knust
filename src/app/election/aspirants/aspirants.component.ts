@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SelectItem} from "primeng/api";
 import {ApiService} from "../../services/api.service";
 import {environment} from '../../../environments/environment'
@@ -9,7 +9,7 @@ import {environment} from '../../../environments/environment'
   styleUrls: ['./aspirants.component.scss']
 })
 export class AspirantsComponent implements OnInit {
-  @Input() aspirants: any
+  aspirants: any = []
   sortOptions: SelectItem[];
   sortOrder: number;
   sortField: string;
@@ -23,7 +23,9 @@ export class AspirantsComponent implements OnInit {
       this.aspirants = res
       console.log(res)
       for (const re of this.aspirants) {
-        this.apiService.getImage(re.image).subscribe(resp => console.log(resp), error => console.log(error))
+        if (re) {
+          this.apiService.getImage(re.image).subscribe(resp => console.log(resp), error => console.log(error))
+        }
       }
     }, error => console.log(error))
   }
