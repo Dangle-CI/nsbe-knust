@@ -44,6 +44,18 @@ export class ApiService {
   }
 
   createAspirant(data: any): any {
-    return this.http.post(`${this.ELECTION_URL}/aspirant`, data)
+    return this.http.post(`${this.ELECTION_URL}/aspirant/data`, data)
+  }
+
+  getAllAspirants(): any {
+    return this.http.get(`${this.ELECTION_URL}/aspirants`)
+  }
+
+  imageUpload(image: FormData): any {
+    return this.http.post(`${this.ELECTION_URL}/aspirant/photo`, image)
+  }
+
+  getImage(image): any {
+    return this.http.get(`${this.ELECTION_URL}/aspirant/${image}`)
   }
 }

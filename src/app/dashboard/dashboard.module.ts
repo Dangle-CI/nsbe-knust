@@ -16,7 +16,6 @@ import {ProgressBarModule} from 'primeng/progressbar';
 import {DropdownModule} from 'primeng/dropdown';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuardService} from '../services/auth-guard.service';
-import {NavbarComponent} from '../shared/navbar/navbar.component';
 import {MenubarModule} from 'primeng/menubar';
 import {AddStaffComponent} from './add-staff/add-staff.component';
 import {AddMembersComponent} from './add-members/add-members.component';

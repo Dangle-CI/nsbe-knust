@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from './storage.service';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, throwError as observableThrowError} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {tap} from 'rxjs/operators';
-import {throwError as observableThrowError} from 'rxjs/internal/observable/throwError';
 
 @Injectable({
   providedIn: 'root'

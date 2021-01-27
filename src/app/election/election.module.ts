@@ -10,6 +10,9 @@ import {AspirantsComponent} from './aspirants/aspirants.component';
 import {PaginatorModule} from "primeng/paginator";
 import {DataViewModule} from 'primeng/dataview';
 import {SharedModule} from "../shared/shared.module";
+import {ToastModule} from "primeng/toast";
+import {ProgressSpinnerModule} from "primeng/progressspinner";
+import {MessagesModule} from "primeng/messages";
 
 const routes: Routes = [{path: '', component: ElectionComponent, canActivate: [AuthGuardService]}];
 
@@ -24,7 +27,10 @@ const routes: Routes = [{path: '', component: ElectionComponent, canActivate: [A
     CardModule,
     PaginatorModule,
     DataViewModule,
-    SharedModule
+    SharedModule,
+    ToastModule,
+    ProgressSpinnerModule,
+    MessagesModule
   ]
 })
 export class ElectionModule {

@@ -6,7 +6,6 @@
         <div class="p-field">
           <label for="surname">Membership ID</label>
           <input
-            (change)="this.onFileChange($event)"
             formControlName="memberId"
             id="surname"
             type="text"
@@ -36,18 +35,19 @@
 
         <div class="p-field">
           <label for="position">Image</label>
-          <!--          <p-fileUpload mode="basic" name="demo[]" [auto]="true" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>-->
-          <input
-            formControlName="image"
-            id="image"
-            type="file"
-            [ngClass]="{'p-invalid':!aspirantsForm.get('image').valid && aspirantsForm.get('image').touched
-                    }"
-            pInputText
-          />
+          <input (change)="onFileChange($event)" id="image" class="custom-file-input" type="file"/>
         </div>
 
-        <button class="submit">Save</button>
+        <p-progressSpinner
+          *ngIf="loading"
+          [style]="{ width: '50px', height: '50px' }"
+          styleClass="custom-spinner"
+          strokeWidth="8"
+          fill="#EEEEEE"
+          animationDuration=".5s"
+        ></p-progressSpinner>
+
+        <button *ngIf="!loading" class="submit">Save</button>
       </form>
     </p-card>
   </div>
@@ -56,3 +56,4 @@
     <app-aspirants></app-aspirants>
   </div>
 </div>
+<p-toast position="bottom-center" key="bc"></p-toast>
