@@ -7,7 +7,8 @@ import { ElectionRepository } from './repository/election.repository';
 @Module({
   controllers: [ElectionController],
   providers: [ElectionService],
-  imports: [TypeOrmModule.forFeature([ElectionRepository])],
+  imports: [TypeOrmModule.forFeature([ElectionRepository]),
+  ],
   exports: [ElectionService],
 })
 export class ElectionModule {

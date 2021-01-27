@@ -1,6 +1,5 @@
 import { BaseEntity, Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
-import { MembersDto } from '../dto/members.dto';
 
 @Entity()
 export class Members extends BaseEntity {
@@ -32,6 +31,7 @@ export class Members extends BaseEntity {
   programme: string;
 
   @ApiProperty()
+  @Index({ unique: true })
   @Column()
   memberId: string;
 

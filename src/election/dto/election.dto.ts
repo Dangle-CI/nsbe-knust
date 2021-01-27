@@ -9,7 +9,7 @@ export class CreateAspirantDto {
   @ApiProperty()
   memberId: string;
   @ApiProperty()
-  image: string;
+  image: any;
 }
 
 export class GetAspirantDetails {
