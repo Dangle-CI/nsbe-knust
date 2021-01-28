@@ -15,7 +15,11 @@ export class ElectionRepository extends Repository<Election> {
   }
 
   async getAspirantById(id: string): Promise<Election> {
+    const query = this.createQueryBuilder('aspirant');
+    // const aspirant = await query.select().findOne({ id });
     const aspirant = await this.find({ id });
+    // const newAsp = await query.where('aspirant.id = :id', { id }).getOne();
+    // console.log(aspirant, id);
     if (!aspirant) throw new NotFoundException(`Aspirant with ID: ${id} not found`);
     return aspirant[0];
   }

@@ -17,7 +17,15 @@ export class Members extends BaseEntity {
   otherNames: string;
 
   @ApiProperty()
-  @Column()
+  @Column({ nullable: true })
+  dob: Date;
+
+  @ApiProperty()
+  @Column({ nullable: true })
+  gender: string;
+
+  @ApiProperty()
+  @Column({ nullable: true })
   @Index({ unique: true })
   mobile: string;
 

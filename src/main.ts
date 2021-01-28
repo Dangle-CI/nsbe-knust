@@ -2,7 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { RedocModule, RedocOptions } from 'nestjs-redoc';
-import helmet from 'helmet';
 import * as hood from 'hood';
 
 async function bootstrap() {
@@ -16,11 +15,18 @@ async function bootstrap() {
     hideHostname: false,
   };
   await RedocModule.setup('/api', app, document, redocOptions);
-
+  const corsOptions = {
+    'origin': '*',
+    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    'preflightContinue': false,
+    'optionsSuccessStatus': 204,
+    'credentials': true,
+    'Access-Control-Allow-Origin': '*',
+  };
   // app.use(helmet());
   app.use(hood());
   app.use(hood.header({}));
-  app.enableCors();
+  app.enableCors(corsOptions);
 
   const PORT = process.env.PORT || 3000;
   await app.listen(PORT, '0.0.0.0');

@@ -61,6 +61,7 @@ export class ElectionService {
 
   async voteForAspirant(id: string): Promise<SimpleDto> {
     const aspirant = await this.electionRepository.getAspirantById(id);
+    console.log(aspirant);
     aspirant.votes += 1;
     try {
       await aspirant.save();
@@ -75,7 +76,8 @@ export class ElectionService {
     if (aspirants.length) {
       for (let aspirant of aspirants) {
         const memberDetails = await this.getAspirantDetails(aspirant.memberId);
-        aspirant = Object.assign(aspirant, memberDetails);
+        aspirant.memberDetails = memberDetails
+        // aspirant = Object.assign(aspirant, memberDetails);
       }
     }
     return aspirants;

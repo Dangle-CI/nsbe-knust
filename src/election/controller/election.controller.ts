@@ -55,7 +55,7 @@ export class ElectionController {
   @Get('/aspirant/:imagename')
   async getImage(@Param('imagename') image, @Res() res) {
     const response = await res.sendFile(image, { root: './images/aspirants' });
-    console.log(response);
+    // console.log(response);
     return {
       status: HttpStatus.OK,
       data: response,

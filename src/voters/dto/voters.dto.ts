@@ -1,12 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { MembersDto } from '../../members/dto/members.dto';
-import { CreateAspirantDto, GetAspirantDetails } from '../../election/dto/election.dto';
+import { MembersData } from '../../members/dto/members.dto';
+import { GetAspirantDetails } from '../../election/dto/election.dto';
 
 export class VoterDetails {
   @ApiProperty()
   id: number;
   @ApiProperty()
-  voterDetails?: MembersDto;
+  voterDetails?: MembersData;
   @ApiProperty()
   aspirants?: GetAspirantDetails[];
 }
@@ -14,6 +14,6 @@ export class VoterDetails {
 export class Vote {
   @ApiProperty()
   memberId: string;
-  @ApiProperty()
-  aspirants: CreateAspirantDto[];
+  // @ApiProperty()
+  // aspirants: CreateAspirantDto[];
 }

@@ -2,14 +2,14 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Members } from '../entity/members.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MembersRepository } from '../repository/members.repository';
-import { MembersDto } from '../dto/members.dto';
+import { MembersData, MembersDto } from '../dto/members.dto';
 
 @Injectable()
 export class MembersService {
   constructor(@InjectRepository(MembersRepository) private membersRepository: MembersRepository) {
   }
 
-  async createNewMember(member: MembersDto): Promise<Members> {
+  async createNewMember(member: MembersDto): Promise<MembersData> {
     const newMember = new Members();
     newMember.regDate = member.regDate;
     newMember.memberId = member.memberId;
@@ -18,10 +18,12 @@ export class MembersService {
     newMember.mobile = member.mobile;
     newMember.otherNames = member.otherNames;
     newMember.surname = member.surname;
+    newMember.dob = member.dob;
+    newMember.gender = member.gender;
     return await this.membersRepository.addMembers(newMember);
   }
 
-  async getMembersById(id: string): Promise<MembersDto> {
+  async getMembersById(id: string): Promise<MembersData> {
     const member = await this.membersRepository.find({ id });
     if (!member) throw new NotFoundException(`Member with ID: ${id} not found`);
     return member[0];
@@ -31,9 +33,9 @@ export class MembersService {
     return await this.membersRepository.getAllMembers();
   }
 
-  async getMembersByMemberId(memberId: string): Promise<MembersDto> {
+  async getMembersByMemberId(memberId: string): Promise<MembersData> {
     const member = await this.membersRepository.find({ memberId });
-    if (!member) throw new NotFoundException(`Member with ID: ${memberId} not found`);
+    if (!member.length) throw new NotFoundException(`Member with ID: ${memberId} not found`);
     return member[0];
   }
 

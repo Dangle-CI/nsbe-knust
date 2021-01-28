@@ -6,7 +6,7 @@ import { MembersService } from '../../members/service/members.service';
 import { MembersDto } from '../../members/dto/members.dto';
 import { Vote, VoterDetails } from '../dto/voters.dto';
 import { ElectionService } from '../../election/service/election.service';
-import { CreateAspirantDto } from '../../election/dto/election.dto';
+import { GetAspirantDetails } from '../../election/dto/election.dto';
 import { SimpleDto } from '../../shared/simple.dto';
 
 @Injectable()
@@ -23,20 +23,30 @@ export class VotersService {
   }
 
   async createVoter(memberId: Vote): Promise<VoterDetails> {
-    const voted = await this.getVoterByMemberId(memberId.memberId);
-    if (voted && voted.voted) {
+    if (!memberId.memberId) throw new UnauthorizedException('No ID Provided');
+    const isMember = await this.getVoterByMemberId(memberId.memberId);
+    // console.log(isMember);
+    if (isMember && isMember.voted) {
       throw new UnauthorizedException('Member has already voted');
-    } else if (voted && !voted.voted) {
-      return voted;
-    } else {
-      let voter = new Voters();
+    } else if (isMember && !isMember.voted) {
       const voterDetails = new VoterDetails();
-      voter.memberId = memberId.memberId;
-      const voterId = await this.votersRepository.createVoter(voter);
-      voterDetails.id = voterId.id;
-      voterDetails.voterDetails = await this.getVoterDetails(voterId.memberId);
+      voterDetails.id = isMember.id;
+      voterDetails.voterDetails = await this.getVoterDetails(isMember.memberId);
       voterDetails.aspirants = await this.electionService.getAllAspirants();
       return voterDetails;
+    } else {
+      const isMember = await this.getVoterDetails(memberId.memberId);
+      // console.log(isMember);
+      if (isMember) {
+        let voter = new Voters();
+        const voterDetails = new VoterDetails();
+        voter.memberId = memberId.memberId;
+        const voterId = await this.votersRepository.createVoter(voter);
+        voterDetails.id = voterId.id;
+        voterDetails.voterDetails = await this.getVoterDetails(voterId.memberId);
+        voterDetails.aspirants = await this.electionService.getAllAspirants();
+        return voterDetails;
+      }
     }
   }
 
@@ -61,19 +71,30 @@ export class VotersService {
     return voter;
   }
 
-  async updateVoterStatus(id: number, aspirants: CreateAspirantDto[]): Promise<SimpleDto> {
+  async updateVoterStatus(id: number, aspirants: Array<GetAspirantDetails>): Promise<SimpleDto> {
+    const data = aspirants;
     const voter = await this.getVoterById(id);
     voter.voted = true;
     try {
-      for (const aspirant of aspirants) {
+      for (const aspirant of data) {
         if (aspirant) {
+          // console.log(aspirant.id);
           await this.electionService.voteForAspirant(aspirant.id);
         }
       }
       await voter.save();
       return { status: 'Voted' };
     } catch (e) {
+      // console.log(e);
       throw new InternalServerErrorException();
     }
+  }
+
+  groupByKey(array, key) {
+    return array
+      .reduce((hash, obj) => {
+        if (obj[key] === undefined) return hash;
+        return Object.assign(hash, { [obj[key]]: (hash[obj[key]] || []).concat(obj) });
+      }, {});
   }
 }

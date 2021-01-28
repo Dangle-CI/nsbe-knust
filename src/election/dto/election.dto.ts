@@ -1,4 +1,4 @@
-import { MembersDto } from '../../members/dto/members.dto';
+import { MembersData } from '../../members/dto/members.dto';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateAspirantDto {
@@ -22,7 +22,7 @@ export class GetAspirantDetails {
   @ApiProperty()
   memberId: string;
   @ApiProperty()
-  memberDetails: MembersDto;
+  memberDetails: MembersData;
 }
 
 export class GCSDto {
