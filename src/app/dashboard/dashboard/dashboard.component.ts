@@ -6,6 +6,7 @@ import {ApiService} from '../../services/api.service';
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {StorageService} from '../../services/storage.service';
 import {MemberModel} from '../../models/member.model';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-dashboard',
@@ -29,17 +30,20 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild('dt') table: Table;
 
+
   constructor(
     private customerService: CustomerService,
     private apiService: ApiService,
     private messageService: MessageService,
     public storageService: StorageService,
     private confirmationService: ConfirmationService,
+    private http: HttpClient
   ) {
   }
 
   ngOnInit(): void {
     this.getAllMembers();
+    // this.loadExcel()
   }
 
   onActivityChange(event): void {
@@ -58,7 +62,7 @@ export class DashboardComponent implements OnInit {
   }
 
   formatDate(date): any {
-    let month = date.getMonth() + 1;
+    let month: any = date.getMonth() + 1;
     let day = date.getDate();
 
     if (month < 10) {
@@ -138,5 +142,33 @@ export class DashboardComponent implements OnInit {
 
   linkedIn(): void {
     window.open('https://www.linkedin.com/in/thehinneh/', '_blank');
+  }
+
+  loadExcel(): void {
+    this.http.get('assets/csv.csv', {responseType: 'text'})
+      .subscribe(
+        data => {
+          let csvToRowArray = data.split("\n");
+          for (let index = 1; index < csvToRowArray.length - 1; index++) {
+            let row = csvToRowArray[index].split(",");
+            console.log(row)
+            const userData = {
+              surname: row[2].split(' ')[0],
+              otherNames: row[1].split(' ')[1],
+              email: row[0],
+              memberId: row[3],
+              programme: row[4],
+              // gender: row[5],
+              // mobile: row[6],
+              // dob: row[7],
+            }
+            this.apiService.addMembers(userData).subscribe(response => console.log(response), error => console.log(error))
+            // console.log(userData)
+          }
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 }

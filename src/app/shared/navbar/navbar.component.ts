@@ -81,10 +81,6 @@ export class NavbarComponent implements OnInit {
     } else {
       this.items = [
         {
-          label: 'Dashboard',
-          command: () => this.router.navigateByUrl('/dashboard')
-        },
-        {
           label: 'Election',
           command: () => this.router.navigateByUrl('/election')
         },
