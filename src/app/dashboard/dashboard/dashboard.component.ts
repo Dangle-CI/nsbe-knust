@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
     private apiService: ApiService,
     private messageService: MessageService,
     public storageService: StorageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
   ) {
   }
 

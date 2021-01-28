@@ -24,22 +24,22 @@ export class NavbarComponent implements OnInit {
         label: 'Election',
         command: () => this.router.navigateByUrl('/election')
       },
-      {
-        label: 'Admin',
-        icon: 'pi pi-fw pi-user',
-        // items: [
-        //   {
-        //     label: 'New',
-        //     icon: 'pi pi-fw pi-user-plus',
-        //     command: () => this.addStaff()
-        //   },
-        //   // {
-        //   //   label: 'Delete',
-        //   //   icon: 'pi pi-fw pi-user-minus',
-        //
-        //   // },
-        // ]
-      },
+      // {
+      //   label: 'Admin',
+      //   icon: 'pi pi-fw pi-user',
+      //   // items: [
+      //   //   {
+      //   //     label: 'New',
+      //   //     icon: 'pi pi-fw pi-user-plus',
+      //   //     command: () => this.addStaff()
+      //   //   },
+      //   //   // {
+      //   //   //   label: 'Delete',
+      //   //   //   icon: 'pi pi-fw pi-user-minus',
+      //   //
+      //   //   // },
+      //   // ]
+      // },
       {
         label: 'Members',
         icon: 'pi pi-fw pi-users',
@@ -62,6 +62,71 @@ export class NavbarComponent implements OnInit {
         command: () => this.logout()
       }
     ];
+    if (this.router.url.includes('election')) {
+      this.items = [
+        {
+          label: 'Dashboard',
+          command: () => this.router.navigateByUrl('/dashboard')
+        },
+        {
+          label: 'Election',
+          command: () => this.router.navigateByUrl('/election')
+        },
+        {
+          label: 'Quit',
+          icon: 'pi pi-fw pi-power-off',
+          command: () => this.logout()
+        }
+      ];
+    } else {
+      this.items = [
+        {
+          label: 'Dashboard',
+          command: () => this.router.navigateByUrl('/dashboard')
+        },
+        {
+          label: 'Election',
+          command: () => this.router.navigateByUrl('/election')
+        },
+        // {
+        //   label: 'Admin',
+        //   icon: 'pi pi-fw pi-user',
+        //   // items: [
+        //   //   {
+        //   //     label: 'New',
+        //   //     icon: 'pi pi-fw pi-user-plus',
+        //   //     command: () => this.addStaff()
+        //   //   },
+        //   //   // {
+        //   //   //   label: 'Delete',
+        //   //   //   icon: 'pi pi-fw pi-user-minus',
+        //   //
+        //   //   // },
+        //   // ]
+        // },
+        {
+          label: 'Members',
+          icon: 'pi pi-fw pi-users',
+          items: [
+            {
+              label: 'New',
+              icon: 'pi pi-fw pi-user-plus',
+              command: () => this.addMembers()
+            },
+            // {
+            //   label: 'Delete',
+            //   icon: 'pi pi-fw pi-user-minus',
+
+            // },
+          ]
+        },
+        {
+          label: 'Quit',
+          icon: 'pi pi-fw pi-power-off',
+          command: () => this.logout()
+        }
+      ];
+    }
   }
 
   addStaff(): void {

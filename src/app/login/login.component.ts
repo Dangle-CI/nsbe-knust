@@ -60,10 +60,10 @@ export class LoginComponent implements OnInit {
 
   signUp(): void {
     const data = {
-      username: 'nrcoc',
-      password: 'ROMans1616=',
-      email: 'data.nrcoc@gmail.com',
-      mobile: '0265920396',
+      username: 'nsbe',
+      password: 'election2021',
+      email: 'hinneh04@gmail.com',
+      mobile: '0501069673',
       status: 'ADMIN'
     }
     this.apiService.signUp(data).subscribe(res => console.log(res), err => console.log(err))

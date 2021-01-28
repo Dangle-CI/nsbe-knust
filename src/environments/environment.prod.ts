@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'process.env.BASE_URL'
+  baseUrl: 'https://nsbe-apis.herokuapp.com'
 };
