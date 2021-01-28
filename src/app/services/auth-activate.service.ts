@@ -21,7 +21,7 @@ export class AuthActivateService {
       // only admins can add new users
       if (routeUrl === 'onboard') {
         // do something
-        return true;
+        return this.storage.isLoggedIn()
       }
     }
   }

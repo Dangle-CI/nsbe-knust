@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://nsawam-road-coc-backend.herokuapp.com'
+  baseUrl: process.env.BASE_URL
 };

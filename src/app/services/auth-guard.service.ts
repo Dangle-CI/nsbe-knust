@@ -36,7 +36,6 @@ export class AuthGuardService implements CanActivate {
       this.router.navigate(['/']);
     } else {
       return true;
-
     }
   }
 

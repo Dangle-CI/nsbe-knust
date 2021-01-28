@@ -37,7 +37,9 @@ export class StorageService {
   }
 
   isLoggedIn(): boolean {
+    if(this.getUserData()){
     return true;
+  } else return false
   }
 
   clearLocalStorage(): void {
