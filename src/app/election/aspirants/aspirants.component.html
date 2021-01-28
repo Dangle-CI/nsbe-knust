@@ -8,11 +8,10 @@
     <ng-template let-aspirant pTemplate="listItem">
       <div class="p-col-12">
         <div class="product-list-item">
-          <img [src]="baseUrl + '/election/aspirant/' + aspirant.image" [alt]="aspirant.name"/>
+          <img [src]="baseUrl + '/election/aspirant/' + aspirant.image" [alt]="aspirant.memberDetails.email"/>
           <div class="product-list-detail">
-            <div class="product-name">{{aspirant.surname.toUpperCase() + ' ' + aspirant.otherNames}}</div>
-            <div class="product-description">{{aspirant.email}}</div>
-            <p-rating [ngModel]="aspirant.rating" [readonly]="true" [cancel]="false"></p-rating>
+            <div class="product-name">{{aspirant.memberDetails.surname.toUpperCase() + ' ' + aspirant.otherNames}}</div>
+            <div class="product-description">{{aspirant.memberDetails.email}}</div>
             <span class="product-category">{{aspirant.position}}</span>
           </div>
           <div class="product-list-action">
@@ -29,8 +28,8 @@
             </div>
           </div>
           <div class="product-grid-item-content">
-            <img [src]="baseUrl + '/election/aspirant/' + aspirant.image" [alt]="aspirant.email"/>
-            <div class="product-name">{{aspirant.surname.toUpperCase() + ' ' + aspirant.otherNames}}</div>
+            <img [src]="baseUrl + '/election/aspirant/' + aspirant.image" [alt]="aspirant.memberDetails.email"/>
+            <div class="product-name">{{aspirant.memberDetails.surname.toUpperCase() + ' ' + aspirant.memberDetails.otherNames}}</div>
             <div class="product-description">{{aspirant.email}}</div>
           </div>
           <div class="product-grid-item-bottom">
