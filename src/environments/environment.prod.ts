@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://apis.nsbeknust.com'
+  baseUrl: 'http://apis.nsbeknust.com'
 };
