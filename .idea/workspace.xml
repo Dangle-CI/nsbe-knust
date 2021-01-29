@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d850aa7a-ab7e-40f3-8ecd-b9d28ff048c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contestant_sample_data.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contestant_sample_data.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contestants/MultiContestant.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contestants/MultiContestant.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contestants/SingleContestant.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contestants/SingleContestant.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static.json" beforeDir="false" afterPath="$PROJECT_DIR$/static.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +82,7 @@
       <workItem from="1611697461034" duration="16547000" />
       <workItem from="1611856622629" duration="1592000" />
       <workItem from="1611875318127" duration="3446000" />
-      <workItem from="1611904117512" duration="10698000" />
+      <workItem from="1611904117512" duration="10866000" />
     </task>
     <servers />
   </component>

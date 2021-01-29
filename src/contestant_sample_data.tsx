@@ -33,4 +33,4 @@ export const SAMPLE_DATA = [
     }
 ]
 
-export const BASE_URL =`http://apis.nsbeknust.com`
+export const BASE_URL =`https://apis.nsbeknust.com`
