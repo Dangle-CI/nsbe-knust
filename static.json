@@ -1,0 +1,23 @@
+{
+    "root": "src/",
+    "headers": {
+      "/**": {
+        "Cache-Control": "src, max-age=0, must-revalidate"
+      },
+      "/**.css": {
+        "Cache-Control": "src, max-age=31536000, immutable"
+      },
+      "/**.js": {
+        "Cache-Control": "src, max-age=31536000, immutable"
+      },
+      "/image/*.png": {
+        "Cache-Control": "src, max-age=31536000, immutable"
+      }
+      ,
+      "/images/*.jpg": {
+        "Cache-Control": "src, max-age=31536000, immutable"
+      }
+    },
+    "https_only": true,
+    "error_page": "404.html"
+  }
