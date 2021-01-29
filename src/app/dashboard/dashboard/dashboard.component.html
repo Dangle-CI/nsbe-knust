@@ -43,7 +43,7 @@
       <th>Programme</th>
       <th>Membership ID</th>
       <th>Registration Date</th>
-      <th></th>
+<!--      <th></th>-->
     </tr>
     <tr>
       <th>
@@ -85,7 +85,7 @@
         />
       </th>
       <th></th>
-      <th></th>
+<!--      <th></th>-->
 
     </tr>
   </ng-template>
@@ -109,10 +109,10 @@
       <td>
         <span [class]="'customer-badge status-' + member.regDate">{{member.regDate}}</span>
       </td>
-      <td class="deleteIcon">
-        <button [id]="member.id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                (click)="deleteMember(member)"></button>
-      </td>
+<!--      <td class="deleteIcon">-->
+<!--        <button [id]="member.id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"-->
+<!--                (click)="deleteMember(member)"></button>-->
+<!--      </td>-->
     </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage">

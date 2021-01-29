@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
 
   signUp(): void {
     const data = {
-      username: 'nsbe',
+      username: 'admin',
       password: 'election2021',
       email: 'hinneh04@gmail.com',
       mobile: '0501069673',

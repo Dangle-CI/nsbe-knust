@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllMembers();
-    // this.loadExcel()
+    this.loadExcel()
   }
 
   onActivityChange(event): void {
@@ -145,25 +145,30 @@ export class DashboardComponent implements OnInit {
   }
 
   loadExcel(): void {
-    this.http.get('assets/csv.csv', {responseType: 'text'})
+    this.http.get('assets/master.csv', {responseType: 'text'})
       .subscribe(
         data => {
           let csvToRowArray = data.split("\n");
           for (let index = 1; index < csvToRowArray.length - 1; index++) {
             let row = csvToRowArray[index].split(",");
-            console.log(row)
-            const userData = {
-              surname: row[2].split(' ')[0],
-              otherNames: row[1].split(' ')[1],
-              email: row[0],
-              memberId: row[3],
-              programme: row[4],
-              // gender: row[5],
-              // mobile: row[6],
-              // dob: row[7],
+            // console.log(row)
+            if (row[2] && row[2] !== '##') {
+              const userData = {
+                otherNames: '',
+                surname: row[0],
+                email: row[1],
+                memberId: row[2],
+                programme: row[3],
+                gender: row[5],
+                mobile: row[6],
+                dob: row[7],
+              }
+              // console.log(userData)
+              // this.apiService.addMembers(userData).subscribe(response => console.log(response), error => console.log(error))
             }
-            this.apiService.addMembers(userData).subscribe(response => console.log(response), error => console.log(error))
-            // console.log(userData)
+
+            // this.apiService.addMembers(userData).subscribe(response => console.log(response), error => console.log(error))
+
           }
         },
         error => {

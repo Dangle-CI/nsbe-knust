@@ -7,4 +7,6 @@ export interface MemberModel {
   programme?: string
   regDate?: Date
   memberId: any
+  dob?: any
+  gender?: any
 }
