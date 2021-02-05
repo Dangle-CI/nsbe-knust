@@ -17,7 +17,7 @@ export class AddMembersComponent implements OnInit {
     mobile: new FormControl(null, [Validators.maxLength(10)]),
     email: new FormControl(''),
     programme: new FormControl(''),
-    regDate: new FormControl(''),
+    regDate: new FormControl(' '),
     memberId: new FormControl('', Validators.required),
   });
   loading: boolean
@@ -40,7 +40,7 @@ export class AddMembersComponent implements OnInit {
         regDate: this.membersForm.value.regDate,
         email: this.membersForm.value.email,
         memberId: this.membersForm.value.memberId,
-        mobile: mobile,
+        mobile,
         otherNames: this.membersForm.value.otherNames,
         programme: this.membersForm.value.programme,
         surname: this.membersForm.value.surname

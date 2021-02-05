@@ -10,7 +10,7 @@
         <div class="product-list-item">
           <img [src]="baseUrl + '/election/aspirant/' + aspirant.image" [alt]="aspirant.memberDetails.email"/>
           <div class="product-list-detail">
-            <div class="product-name">{{aspirant.memberDetails.surname.toUpperCase() + ' ' + aspirant.otherNames}}</div>
+            <div class="product-name">{{aspirant.memberDetails.surname.toUpperCase() + ' ' + aspirant.memberDetails.otherNames}}</div>
             <div class="product-description">{{aspirant.memberDetails.email}}</div>
             <span class="product-category">{{aspirant.position}}</span>
           </div>
