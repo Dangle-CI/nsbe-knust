@@ -14,11 +14,11 @@ export class AddMembersComponent implements OnInit {
   membersForm = new FormGroup({
     surname: new FormControl('', Validators.required),
     otherNames: new FormControl('', Validators.required),
-    mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
+    mobile: new FormControl(null, [Validators.maxLength(10)]),
     email: new FormControl(''),
-    programme: new FormControl('', Validators.required),
-    regDate: new FormControl('', Validators.required),
-    memberId: new FormControl(''),
+    programme: new FormControl(''),
+    regDate: new FormControl(''),
+    memberId: new FormControl('', Validators.required),
   });
   loading: boolean
   today = new Date();
