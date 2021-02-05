@@ -1,24 +1,29 @@
 @font-face {
-    font-family:mainfont;
+    font-family: mainfont;
     src: url('../fonts/ABeeZee-Regular.ttf');
-  }
-h2{
+}
+
+h2 {
     font-family: mainfont;
 }
-  .appbar{
-      height: 50px;
-      background-color: rgba(0, 0, 0, 0.753);
-  }
-  .app-title{
-      margin-left: 10px;
-      font-size: 30px;
-      font-family: mainfont;
-      color: rgb(211, 208, 28);
-  }
-  .page-container{
-      margin-top: 70px;
-  }
-.contestants{
+
+.appbar {
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.753);
+}
+
+.app-title {
+    margin-left: 10px;
+    font-size: 30px;
+    font-family: mainfont;
+    color: rgb(211, 208, 28);
+}
+
+.page-container {
+    margin-top: 70px;
+}
+
+.contestants {
     background-color: rgb(73, 68, 6);
     width: 100%;
     display: flex;
@@ -26,33 +31,35 @@ h2{
     justify-content: center;
     align-items: center;
 }
-.contestant{
- 
-   height: fit-content;
-  
+
+.contestant {
+
+    height: fit-content;
+
 }
 
-.contestant-img{
-  
-  height: 220px;
-  /* width: 200px; */
-    
+.contestant-img {
+
+    height: 220px;
+    /* width: 200px; */
+
 }
 
-.card-content{
+.card-content {
     background-color: #ffd300;
     padding: 0;
     height: fit-content;
     width: 165px;
     word-wrap: break-word;
-    margin-top: -33px; 
+    margin-top: -33px;
 }
-.card-title{
-   color: rgb(26, 7, 7);
-   font-family: mainfont;
-   
-   font-size: 20px;
-  padding-top: 20px;
+
+.card-title {
+    color: rgb(26, 7, 7);
+    font-family: mainfont;
+
+    font-size: 20px;
+    padding-top: 20px;
     height: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -60,81 +67,87 @@ h2{
 }
 
 
-.contestant-container{
-    height:fit-content;
+.contestant-container {
+    height: fit-content;
     width: fit-content;
-  /*   margin: 10px; */
-     position: relative;
-    
-   
+    /*   margin: 10px; */
+    position: relative;
+
+
     margin-left: 10px;
     margin-bottom: 20px;
 }
-.contestant-container .down-layer{
- 
-  
-    height: 100%;
-    
-  
-  
-}
-.contestant-container .top-layer{
-    background-color: rgba(0, 0, 0, 0.39);
+
+.contestant-container .down-layer {
+
 
     height: 100%;
-    width: 165px;
+
+
+}
+
+.contestant-container .top-layer {
+    /*background-color: rgba(0, 0, 0, 0.39);*/
+    /*height: 100%;*/
+    /*width: 165px;*/
     position: absolute;
     top: 0;
     left: 0;
-   
 }
 
-.acc-content{
-   
+.acc-content {
+
     padding: 0;
-    display: flex ;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.grid-items{
+
+.grid-items {
     text-align: center;
-    
+
 }
-.grid-container{
-    
-  
+
+.grid-container {
+
+
     width: 100%;
-  
+
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
 }
-.inline-items{
+
+.inline-items {
     display: block;
 }
-.single-contestant{
-   width: 100%;
+
+.single-contestant {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.raw-btn{
-   
-        width: 100px;
-        height: 50px;
-        padding: 5px;
-        opacity: 0.5;
-        background-color: rgb(18, 20, 16);
-        color: whitesmoke;
-        margin: 15px;
+
+.raw-btn {
+
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    opacity: 0.5;
+    background-color: rgb(18, 20, 16);
+    color: whitesmoke;
+    margin: 15px;
 }
-.raw-btn:hover{
+
+.raw-btn:hover {
     background-color: rgb(18, 20, 16);
 }
-.yes-button{
+
+.yes-button {
     width: 100px;
     height: 50px;
     padding: 5px;
@@ -142,10 +155,12 @@ h2{
     color: whitesmoke;
     margin: 15px;
 }
-.yes-button:hover{
+
+.yes-button:hover {
     background-color: rgb(30, 202, 0);
 }
-.no-button_{
+
+.no-button_ {
     width: 100px;
     height: 50px;
     padding: 5px;
@@ -153,16 +168,18 @@ h2{
     color: whitesmoke;
     margin: 15px;
 }
-.no-button_:hover{
-       background-color: rgb(255, 94, 0);
+
+.no-button_:hover {
+    background-color: rgb(255, 94, 0);
 }
 
 
-.submit-btn-area{
+.submit-btn-area {
     text-align: center;
-    
+
 }
-.submit-btn{
+
+.submit-btn {
     width: 150px;
     background-color: #c2ae4a;
     color: whitesmoke;
@@ -170,23 +187,26 @@ h2{
     font-weight: lighter;
     height: 70px;
 }
-.submit-btn:hover{
+
+.submit-btn:hover {
     background-color: #c2ae4a;
 }
-.accordion{
+
+.accordion {
     margin-bottom: 20px;
 }
 
-.accordion-header{
-    background-color: #ffd300 ;
+.accordion-header {
+    background-color: #ffd300;
 }
-.accordion-title{
+
+.accordion-title {
     color: rgb(3, 3, 3);
     font-family: mainfont;
     text-transform: uppercase;
 }
 
-li{
+li {
     font-family: mainfont;
     font-size: 17px;
 }

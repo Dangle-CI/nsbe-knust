@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d850aa7a-ab7e-40f3-8ecd-b9d28ff048c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/contestant_sample_data.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contestant_sample_data.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contestants/ContestantsIndex.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contestants/ContestantsIndex.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contestants/MultiContestant.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contestants/MultiContestant.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contestants/cont_index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/contestants/cont_index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +16,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nQNwCqc8HhxgUmtT6teywGmL9x" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,6 +32,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
