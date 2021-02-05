@@ -47,11 +47,12 @@ h2 {
 
 .card-content {
     background-color: #ffd300;
-    padding: 0;
     height: fit-content;
-    width: 165px;
+    /*width: 165px;*/
     word-wrap: break-word;
     margin-top: -33px;
+
+    padding: 0 10px 10px;
 }
 
 .card-title {
@@ -209,4 +210,8 @@ h2 {
 li {
     font-family: mainfont;
     font-size: 17px;
+}
+
+.image-container {
+    display: flex;
 }

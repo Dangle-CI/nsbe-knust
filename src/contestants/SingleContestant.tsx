@@ -17,7 +17,7 @@ export default function SingleContestant(props) {
                 <div className="contestant-container inlined-items">
                     <div className="down-layer">
                         <Card className="contestant">
-                            <CardActionArea>
+                            <CardActionArea className='image-container'>
                                 <img className='contestant-img'
                                      src={`${BASE_URL}/election/aspirant/${contestants.image}`}/>
                             </CardActionArea>

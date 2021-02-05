@@ -7,7 +7,7 @@ import {BASE_URL} from "../contestant_sample_data";
 export default function MultiContestant(props) {
     const [selected, setSelected] = useState('')
     const {contestants, selectionHandler, portfolio} = props
-    console.log(selected)
+
     return (
         <>
             {
@@ -16,14 +16,14 @@ export default function MultiContestant(props) {
                     let name = memberDetails.surname + " " + memberDetails.otherNames
                     let id = memberDetails.memberId
                     return <Grid item key={contestant.name} xs={6} sm={3} className='grid-items'>
-                        <div key={contestant.name} className="contestant-container" onClick={() => {
+                        <div className="contestant-container" onClick={() => {
                             setSelected(id)
                             selectionHandler(contestant, portfolio, true)
                         }}>
-                            <div key={contestant.name} className="down-layer">
-                                <Card key={contestant.name} className="contestant">
-                                    <CardActionArea key={contestant.name}>
-                                        <img key={contestant.name} className='contestant-img'
+                            <div className="down-layer">
+                                <Card className="contestant">
+                                    <CardActionArea className='image-container'>
+                                        <img className='contestant-img'
                                              src={`${BASE_URL}/election/aspirant/${contestant.image}`}/>
                                     </CardActionArea>
                                     <CardContent className='card-content'>
@@ -32,7 +32,7 @@ export default function MultiContestant(props) {
 
                                 </Card>
                             </div>
-                            <div key={contestant.name} className={selected === id ? 'top-layer' : ''}>
+                            <div className={selected === id ? 'top-layer' : ''}>
                                 {selected === id ? '✅' : ''}
                             </div>
                         </div>
