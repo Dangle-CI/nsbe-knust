@@ -15,7 +15,7 @@ export default function MultiContestant(props) {
                     const {memberDetails} = contestant
                     let name = memberDetails.surname + " " + memberDetails.otherNames
                     let id = memberDetails.memberId
-                    return <Grid item key={contestant.name} xs={6} sm={3} className='grid-items'>
+                    return <Grid item key={contestant.name} xs={6} className='grid-items'>
                         <div className="contestant-container" onClick={() => {
                             setSelected(id)
                             selectionHandler(contestant, portfolio, true)
