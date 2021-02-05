@@ -17,14 +17,14 @@ export class AddMembersComponent implements OnInit {
     mobile: new FormControl(null, [Validators.maxLength(10)]),
     email: new FormControl(''),
     programme: new FormControl(''),
-    regDate: new FormControl(' '),
+    regDate: new FormControl(''),
     memberId: new FormControl('', Validators.required),
   });
-  loading: boolean
+  loading: boolean;
   today = new Date();
   month = this.today.getMonth();
   thisYear = this.today.getFullYear();
-  yearRange = `1998:${this.thisYear}`
+  yearRange = `1998:${this.thisYear}`;
 
   constructor(public storageService: StorageService, private apiService: ApiService, private messageService: MessageService) {
   }
@@ -34,10 +34,11 @@ export class AddMembersComponent implements OnInit {
 
   addMember(): any {
     if (this.membersForm.valid) {
-      this.loading = true
+      this.loading = true;
       const mobile = `233${this.membersForm.get('mobile').value.substring(1)}`;
+      const regDate = new Date();
       const data = {
-        regDate: this.membersForm.value.regDate,
+        regDate: this.membersForm.value.regDate || regDate,
         email: this.membersForm.value.email,
         memberId: this.membersForm.value.memberId,
         mobile,
@@ -50,17 +51,17 @@ export class AddMembersComponent implements OnInit {
         resp => {
           this.successMessage();
           this.getAllMembers();
-          this.membersForm.reset()
-          this.loading = false
+          this.membersForm.reset();
+          this.loading = false;
           console.log(resp);
         }, err => {
           this.errorMessage();
-          this.loading = false
+          this.loading = false;
           console.log(err);
         }
       );
     } else {
-      this.errorMessage('Please complete member details')
+      this.errorMessage('Please complete member details');
     }
   }
 
@@ -85,7 +86,7 @@ export class AddMembersComponent implements OnInit {
   getAllMembers(): void {
     this.apiService.getAllMembers().subscribe(resp => {
       this.storageService.membersData = resp;
-    }, error => {
+    }, () => {
       this.messageService.add({
         key: 'bc',
         severity: 'info',
