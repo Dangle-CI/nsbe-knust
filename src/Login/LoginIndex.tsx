@@ -68,7 +68,7 @@ export default function LoginIndex() {
                </div>
                <div>
                   
-                   <Card className='form-card'>
+                   {/* <Card className='form-card'>
                       
                        <CardContent>
                            <h1>Login</h1>
@@ -84,7 +84,7 @@ export default function LoginIndex() {
 
                           
                        </CardContent>
-                   </Card>
+                   </Card> */}
                </div>
            </div>
        </div>
